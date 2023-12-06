@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/user_home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/img_user_photo"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            tools:src="@drawable/ic_launcher_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20sp"
+            tools:text="namauserdisini"
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintStart_toEndOf="@id/img_user_photo"
+            app:layout_constraintTop_toTopOf="@id/img_user_photo"
+            app:layout_constraintBottom_toBottomOf="@id/img_user_photo" />
+
+        <ImageView
+            android:id="@+id/img_notification"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_notification"
+            app:tint="?attr/colorOnPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_user_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/user_home_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:menu="@menu/manu_user_home"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_services"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_home_toolbar" />
+
+    <TextView
+        android:id="@+id/tv_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toStartOf="@id/rv_services"
+        app:layout_constraintBottom_toTopOf="@id/rv_services" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/discount"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="?attr/colorPrimary"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintStart_toStartOf="@id/rv_services"
+        app:layout_constraintEnd_toEndOf="@id/rv_services"
+        app:layout_constraintTop_toBottomOf="@id/rv_services" >
+
+        <ImageView
+            android:id="@+id/discount_logo"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginVertical="20dp"
+            tools:src="@drawable/ic_launcher_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/discount_title"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            tools:text="Judul"
+            android:textColor="?attr/colorOnPrimary"
+            android:layout_marginLeft="100dp"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/discount_logo"
+            app:layout_constraintTop_toTopOf="@id/discount_logo" />
+
+
+        <TextView
+            android:id="@+id/discount_description"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            tools:text="deskripsi"
+            app:layout_constraintStart_toStartOf="@id/discount_title"
+            app:layout_constraintTop_toBottomOf="@id/discount_title"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_history_tranaksi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/discount"
+        app:layout_constraintStart_toStartOf="@id/discount"
+        app:layout_constraintBottom_toTopOf="@id/user_home_navigation" />
+
+    <TextView
+        android:id="@+id/tv_history_tranaksi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Orders"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toStartOf="@id/rv_history_tranaksi"
+        app:layout_constraintBottom_toTopOf="@id/rv_history_tranaksi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
