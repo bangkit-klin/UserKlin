@@ -16,19 +16,19 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 
 interface RetrofitApi {
-    @GET("/")
+    @GET
     fun getAll(@Header("X-API-Key") apiKey: String): Call<ResponseBody>
 
-    @DELETE("/")
+    @DELETE
     fun deleteAll(@Header("X-API-Key") apiKey: String): Call<ResponseBody>
 
-    @GET("/users")
-    fun getUsers(@Header("X-API-Key") apiKey: String): Call<ResponseBody>
+    @GET("users")
+    fun getUsers(@Header("X-API-Key") apiKey: String): Call<ArrayList<User>>
 
-    @GET("/users/{id}")
-    fun getUserById(@Header("X-API-Key") apiKey: String, @Path("id") idUser: String): Call<ResponseBody>
+    @GET("users/{id}")
+    fun getUserById(@Header("X-API-Key") apiKey: String, @Path("id") idUser: String): Call<User>
 
-    @POST("/users")
+    @POST("users")
     @Multipart
     fun createUser(
         @Header("X-API-Key") apiKey: String,
@@ -40,7 +40,7 @@ interface RetrofitApi {
         @Part userPicture: MultipartBody.Part
     ): Call<ResponseBody>
 
-    @PUT("/users/{id}")
+    @PUT("users/{id}")
     @Multipart
     fun updateUser(
         @Header("X-API-Key") apiKey: String,
@@ -52,18 +52,19 @@ interface RetrofitApi {
         @Part userPicture: MultipartBody.Part
     ): Call<ResponseBody>
 
-    @DELETE("/users/{id}")
-    fun deleteUser(@Header("X-API-Key") apiKey: String, @Path("id") idUser: String): Call<ResponseBody>
+    @DELETE("users/{id}")
+    fun deleteUser(@Header("X-API-Key") apiKey: String, @Path("id") idUser: String): Call<String>
 
-    @GET("/laundry")
+    @GET("laundry")
     fun getLaundries(@Header("X-API-Key") apiKey: String): Call<ResponseBody>
 
-    @POST("/predict")
+    @POST("predict")
     @Multipart
     fun predictImage(@Header("X-API-Key") apiKey: String, @Part image: MultipartBody.Part): Call<ResponseBody>
 
-    @POST("/signup")
+    @POST("signup")
     @Headers("Content-Type: application/json")
     fun signUp(@Header("x-api-key") apiKey: String, @Body body: RequestBody): Call<ResponseBody>
 
+//    Belum seluruh endpoint memiliki fungsi
 }
